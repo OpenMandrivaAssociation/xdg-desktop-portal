@@ -11,7 +11,7 @@ Summary: D-Bus service providing native file dialogs
 URL: http://github.com/flatpak/xdg-desktop-portal
 License: GPL
 Group: System/Libraries
-BuildRequires: autoconf automake libtool make
+BuildRequires: autoconf automake libtool gettext-devel make
 BuildRequires: xmlto
 BuildRequires: systemd-macros
 BuildRequires: pkgconfig(glib-2.0) pkgconfig(gio-2.0) pkgconfig(gio-unix-2.0) pkgconfig(fontconfig)
