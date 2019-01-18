@@ -26,7 +26,7 @@ Requires: xdg-desktop-portal-implementation
 D-Bus service providing native file dialogs.
 
 %prep
-%autosetup
+%autosetup -p1
 [ -e autogen.sh ] && ./autogen.sh
 %configure
 
@@ -41,6 +41,7 @@ D-Bus service providing native file dialogs.
 %{_prefix}/lib/systemd/user/xdg-desktop-portal.service
 %{_prefix}/lib/systemd/user/xdg-document-portal.service
 %{_prefix}/lib/systemd/user/xdg-permission-store.service
+%{_libexecdir}/xdg-desktop-portal-validate-icon
 %{_libexecdir}/xdg-desktop-portal
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
@@ -50,6 +51,7 @@ D-Bus service providing native file dialogs.
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Email.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.FileChooser.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Inhibit.xml
+%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Lockdown.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Notification.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.PermissionStore.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Print.xml
