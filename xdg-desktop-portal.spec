@@ -19,6 +19,7 @@ BuildRequires: pkgconfig(libpipewire-0.2)
 BuildRequires: pkgconfig(libgeoclue-2.0) >= 2.5.2
 BuildRequires: pkgconfig(fuse)
 BuildRequires: pkgconfig(flatpak)
+BuildRequires: pkgconfig(gdk-pixbuf-2.0)
 Requires: xdg-desktop-portal-implementation
 
 %description
