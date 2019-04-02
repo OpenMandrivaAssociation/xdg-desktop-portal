@@ -41,7 +41,6 @@ D-Bus service providing native file dialogs.
 %{_prefix}/lib/systemd/user/xdg-desktop-portal.service
 %{_prefix}/lib/systemd/user/xdg-document-portal.service
 %{_prefix}/lib/systemd/user/xdg-permission-store.service
-%{_libexecdir}/xdg-desktop-portal-validate-icon
 %{_libexecdir}/xdg-desktop-portal
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
