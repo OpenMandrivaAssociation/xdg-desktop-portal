@@ -14,7 +14,11 @@ Group: System/Libraries
 BuildRequires: autoconf automake libtool gettext-devel make
 BuildRequires: xmlto
 BuildRequires: systemd-macros
-BuildRequires: pkgconfig(glib-2.0) pkgconfig(gio-2.0) pkgconfig(gio-unix-2.0) pkgconfig(fontconfig)
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gio-2.0)
+BuildRequires: pkgconfig(gio-unix-2.0)
+BuildRequires: pkgconfig(fontconfig)
+BuildRequires: pkgconfig(json-glib-1.0)
 BuildRequires: pkgconfig(libpipewire-0.2)
 BuildRequires: pkgconfig(libgeoclue-2.0) >= 2.5.2
 BuildRequires: pkgconfig(fuse)
