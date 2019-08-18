@@ -61,44 +61,8 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
 %{_datadir}/%{name}/portals
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Access.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Account.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.AppChooser.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Email.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.FileChooser.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Inhibit.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Lockdown.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Notification.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.PermissionStore.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Print.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.RemoteDesktop.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Request.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.ScreenCast.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Screenshot.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Session.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.Settings.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Account.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Device.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Documents.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Email.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.FileChooser.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Inhibit.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Location.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.NetworkMonitor.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Notification.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.OpenURI.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Print.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.ProxyResolver.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.RemoteDesktop.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Request.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.ScreenCast.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Screenshot.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Session.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Settings.xml
-%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Trash.xml
-%{_datadir}/dbus-1/services/org.freedesktop.impl.portal.PermissionStore.service
-%{_datadir}/dbus-1/services/org.freedesktop.portal.Desktop.service
-%{_datadir}/dbus-1/services/org.freedesktop.portal.Documents.service
+%{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
+%{_datadir}/dbus-1/services/org.freedesktop.*.service
 %doc %{_docdir}/xdg-desktop-portal
 
 %files devel
