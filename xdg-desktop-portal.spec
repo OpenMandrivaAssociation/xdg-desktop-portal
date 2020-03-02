@@ -4,9 +4,12 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.4.2
+Version: 1.6.0
 Release: 1
-Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{name}-%{version}.tar.xz
+Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.gz
+# pipewire 0.3 support
+# https://github.com/flatpak/xdg-desktop-portal/pull/436
+Patch0: https://patch-diff.githubusercontent.com/raw/flatpak/xdg-desktop-portal/pull/436.patch
 Summary: D-Bus service providing native file dialogs
 URL: http://github.com/flatpak/xdg-desktop-portal
 License: GPL
@@ -19,11 +22,12 @@ BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gio-unix-2.0)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(json-glib-1.0)
-BuildRequires: pkgconfig(libpipewire-0.2)
+BuildRequires: pkgconfig(libpipewire-0.3)
 BuildRequires: pkgconfig(libgeoclue-2.0) >= 2.5.2
 BuildRequires: pkgconfig(fuse)
 BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
+BuildRequires: pkgconfig(libportal)
 Requires: xdg-desktop-portal-implementation
 Requires: dbus
 
