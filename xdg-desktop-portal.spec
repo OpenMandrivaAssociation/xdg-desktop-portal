@@ -4,9 +4,9 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.6.0
+Version: 1.8.0
 Release: 1
-Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.gz
+Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 # pipewire 0.3 support
 # https://github.com/flatpak/xdg-desktop-portal/pull/436
 Patch0: https://patch-diff.githubusercontent.com/raw/flatpak/xdg-desktop-portal/pull/436.patch
