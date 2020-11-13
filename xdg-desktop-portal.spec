@@ -7,9 +7,6 @@ Name: xdg-desktop-portal
 Version: 1.8.0
 Release: 1
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
-# pipewire 0.3 support
-# https://github.com/flatpak/xdg-desktop-portal/pull/436
-Patch0: https://patch-diff.githubusercontent.com/raw/flatpak/xdg-desktop-portal/pull/436.patch
 Summary: D-Bus service providing native file dialogs
 URL: http://github.com/flatpak/xdg-desktop-portal
 License: GPL
@@ -45,7 +42,7 @@ The pkg-config file for %{name}.
 %prep
 %autosetup -p1
 [ -e autogen.sh ] && ./autogen.sh
-%configure
+%configure --with-systemduserunitdir=%{_userunitdir}
 
 %build
 %make_build
@@ -57,10 +54,18 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 
 %find_lang %{name} --all-name --with-html
 
+%post
+%systemd_user_post %{name}.service
+%systemd_user_post xdg-document-portal.service
+%systemd_user_post xdg-permission-store.service
+
+%preun
+%systemd_user_preun %{name}.service
+%systemd_user_preun xdg-document-portal.service
+%systemd_user_preun xdg-permission-store.service
+
 %files -f %{name}.lang
-%{_prefix}/lib/systemd/user/xdg-desktop-portal.service
-%{_prefix}/lib/systemd/user/xdg-document-portal.service
-%{_prefix}/lib/systemd/user/xdg-permission-store.service
+%{_userunitdir}/xdg-*.service
 %{_libexecdir}/xdg-desktop-portal
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
