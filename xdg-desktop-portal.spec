@@ -12,7 +12,7 @@ License: GPL
 Group: System/Libraries
 BuildRequires: autoconf automake libtool gettext-devel make
 BuildRequires: xmlto
-BuildRequires: systemd-macros
+BuildRequires: systemd-rpm-macros
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gio-unix-2.0)
