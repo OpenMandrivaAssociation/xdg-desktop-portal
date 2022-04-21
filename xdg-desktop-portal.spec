@@ -20,6 +20,7 @@ BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(json-glib-1.0)
 BuildRequires: pkgconfig(libpipewire-0.3)
 BuildRequires: pkgconfig(libgeoclue-2.0) >= 2.5.2
+BuildRequires: pkgconfig(libsystemd)
 BuildRequires: pkgconfig(fuse)
 BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
