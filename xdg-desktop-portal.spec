@@ -67,6 +67,8 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %files -f %{name}.lang
 %{_userunitdir}/xdg-*.service
 %{_libexecdir}/xdg-desktop-portal
+%{_libexecdir}/xdg-desktop-portal-rewrite-launchers
+%{_libexecdir}/xdg-desktop-portal-validate-icon
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
 %{_datadir}/%{name}/portals
