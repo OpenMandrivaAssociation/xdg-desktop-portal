@@ -3,7 +3,7 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.12.1
+Version: 1.14.3
 Release: 1
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
@@ -20,7 +20,8 @@ BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(json-glib-1.0)
 BuildRequires: pkgconfig(libpipewire-0.3)
 BuildRequires: pkgconfig(libgeoclue-2.0) >= 2.5.2
-BuildRequires: pkgconfig(fuse)
+BuildRequires: pkgconfig(libsystemd)
+BuildRequires: pkgconfig(fuse3)
 BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
 BuildRequires: pkgconfig(libportal)
@@ -66,6 +67,8 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %files -f %{name}.lang
 %{_userunitdir}/xdg-*.service
 %{_libexecdir}/xdg-desktop-portal
+%{_libexecdir}/xdg-desktop-portal-rewrite-launchers
+%{_libexecdir}/xdg-desktop-portal-validate-icon
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
 %{_datadir}/%{name}/portals
