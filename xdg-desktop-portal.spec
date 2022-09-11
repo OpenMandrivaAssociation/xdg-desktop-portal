@@ -4,13 +4,12 @@
 
 Name: xdg-desktop-portal
 Version: 1.15.0
-Release: 1
+Release: 2
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
 URL: http://github.com/flatpak/xdg-desktop-portal
 License: GPL
 Group: System/Libraries
-BuildRequires: autoconf automake libtool gettext-devel make
 BuildRequires: xmlto
 BuildRequires: systemd-rpm-macros
 BuildRequires: pkgconfig(glib-2.0)
@@ -26,7 +25,11 @@ BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
 BuildRequires: pkgconfig(libportal)
 Requires: xdg-desktop-portal-implementation
+%{?systemd_requires}
 Requires: dbus
+Requires: geoclue
+Requires: pipewire
+Requires: fuse
 
 %description
 D-Bus service providing native file dialogs.
