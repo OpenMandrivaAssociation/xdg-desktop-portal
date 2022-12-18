@@ -10,6 +10,7 @@ Summary: D-Bus service providing native file dialogs
 URL: http://github.com/flatpak/xdg-desktop-portal
 License: GPL
 Group: System/Libraries
+BuildRequires: meson
 BuildRequires: xmlto
 BuildRequires: systemd-rpm-macros
 BuildRequires: pkgconfig(glib-2.0)
@@ -44,14 +45,13 @@ The pkg-config file for %{name}.
 
 %prep
 %autosetup -p1
-[ -e autogen.sh ] && ./autogen.sh
-%configure --with-systemduserunitdir=%{_userunitdir}
 
 %build
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 # This directory is used by implementations such as xdg-desktop-portal-gtk.
 install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 
