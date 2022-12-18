@@ -25,6 +25,10 @@ BuildRequires: pkgconfig(fuse3)
 BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
 BuildRequires: pkgconfig(libportal)
+BuildRequires: pkgconfig(python)
+BuildRequires: pkgconfig(dbus-python)
+BuildRequires: python3dist(python-dbusmock)
+BuildRequires: python3dist(pygobject)
 Requires: xdg-desktop-portal-implementation
 %{?systemd_requires}
 Requires: dbus
