@@ -52,7 +52,8 @@ The pkg-config file for %{name}.
 %autosetup -p1
 
 %build
-%meson
+%meson  \
+        -Dpytest=disabled
 %meson_build
 
 %install
