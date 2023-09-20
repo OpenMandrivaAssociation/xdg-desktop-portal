@@ -3,11 +3,11 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.16.0
-Release: 2
+Version: 1.18.0
+Release: 1
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
-URL: http://github.com/flatpak/xdg-desktop-portal
+URL: https://github.com/flatpak/xdg-desktop-portal
 License: GPL
 Group: System/Libraries
 BuildRequires: meson
