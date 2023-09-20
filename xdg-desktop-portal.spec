@@ -3,11 +3,11 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.16.0
-Release: 2
+Version: 1.18.0
+Release: 1
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
-URL: http://github.com/flatpak/xdg-desktop-portal
+URL: https://github.com/flatpak/xdg-desktop-portal
 License: GPL
 Group: System/Libraries
 BuildRequires: meson
@@ -29,6 +29,7 @@ BuildRequires: pkgconfig(python)
 BuildRequires: pkgconfig(dbus-python)
 BuildRequires: python3dist(python-dbusmock)
 BuildRequires: python3dist(pygobject)
+BuildRequires: python3dist(docutils)
 Requires: xdg-desktop-portal-implementation
 %{?systemd_requires}
 Requires: dbus
@@ -51,7 +52,8 @@ The pkg-config file for %{name}.
 %autosetup -p1
 
 %build
-%meson
+%meson  \
+        -Dpytest=disabled
 %meson_build
 
 %install
@@ -82,6 +84,7 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
 %{_datadir}/dbus-1/services/org.freedesktop.*.service
 %doc %{_docdir}/xdg-desktop-portal
+%{_mandir}/man5/portals.conf.5.*
 
 %files devel
 %{_datadir}/pkgconfig/xdg-desktop-portal.pc
