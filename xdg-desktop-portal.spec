@@ -32,6 +32,7 @@ BuildRequires: pkgconfig(dbus-python)
 BuildRequires: python3dist(python-dbusmock)
 BuildRequires: python3dist(pygobject)
 BuildRequires: python3dist(docutils)
+BuildRequires: python3dist(sphinx)
 Requires: xdg-desktop-portal-implementation
 %{?systemd_requires}
 Requires: dbus
