@@ -32,7 +32,8 @@ BuildRequires: pkgconfig(dbus-python)
 BuildRequires: python3dist(python-dbusmock)
 BuildRequires: python3dist(pygobject)
 BuildRequires: python3dist(docutils)
-BuildRequires: python3dist(sphinx)
+#BuildRequires: python3.11dist(furo)
+#BuildRequires: python3dist(sphinx)
 Requires: xdg-desktop-portal-implementation
 %{?systemd_requires}
 Requires: dbus
@@ -56,7 +57,8 @@ The pkg-config file for %{name}.
 
 %build
 %meson  \
-        -Dpytest=disabled
+        -Dpytest=disabled \
+        -Ddocumentation=disabled
 %meson_build
 
 %install
