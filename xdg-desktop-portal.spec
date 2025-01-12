@@ -17,6 +17,7 @@ BuildRequires: systemd-rpm-macros
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gio-unix-2.0)
+BuildRequires: pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(json-glib-1.0)
 BuildRequires: pkgconfig(libpipewire-0.3)
