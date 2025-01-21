@@ -85,6 +85,7 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_libexecdir}/xdg-desktop-portal-validate-icon
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
+%{_libexecdir}/xdg-desktop-portal-validate-sound
 %{_datadir}/%{name}/portals
 %{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
 %{_datadir}/dbus-1/services/org.freedesktop.*.service
