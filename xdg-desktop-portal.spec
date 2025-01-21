@@ -88,7 +88,7 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_datadir}/%{name}/portals
 %{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
 %{_datadir}/dbus-1/services/org.freedesktop.*.service
-%doc %{_docdir}/xdg-desktop-portal
+#doc %{_docdir}/xdg-desktop-portal
 %{_mandir}/man5/portals.conf.5.*
 
 %files devel
