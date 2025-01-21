@@ -3,7 +3,7 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.18.4
+Version: 1.19.2
 Release: 1
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
@@ -17,6 +17,7 @@ BuildRequires: systemd-rpm-macros
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gio-unix-2.0)
+BuildRequires: pkgconfig(gstreamer-pbutils-1.0)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(json-glib-1.0)
 BuildRequires: pkgconfig(libpipewire-0.3)
@@ -31,6 +32,8 @@ BuildRequires: pkgconfig(dbus-python)
 BuildRequires: python3dist(python-dbusmock)
 BuildRequires: python3dist(pygobject)
 BuildRequires: python3dist(docutils)
+#BuildRequires: python3.11dist(furo)
+#BuildRequires: python3dist(sphinx)
 Requires: xdg-desktop-portal-implementation
 %{?systemd_requires}
 Requires: dbus
@@ -54,7 +57,8 @@ The pkg-config file for %{name}.
 
 %build
 %meson  \
-        -Dpytest=disabled
+        -Dpytest=disabled \
+        -Ddocumentation=disabled
 %meson_build
 
 %install
@@ -81,10 +85,11 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_libexecdir}/xdg-desktop-portal-validate-icon
 %{_libexecdir}/xdg-document-portal
 %{_libexecdir}/xdg-permission-store
+%{_libexecdir}/xdg-desktop-portal-validate-sound
 %{_datadir}/%{name}/portals
 %{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
 %{_datadir}/dbus-1/services/org.freedesktop.*.service
-%doc %{_docdir}/xdg-desktop-portal
+#doc %{_docdir}/xdg-desktop-portal
 %{_mandir}/man5/portals.conf.5.*
 
 %files devel
