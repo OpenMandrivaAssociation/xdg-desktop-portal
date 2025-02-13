@@ -57,7 +57,7 @@ The pkg-config file for %{name}.
 
 %build
 %meson  \
-        -Dpytest=disabled \
+        -Dtests=disabled \
         -Ddocumentation=disabled
 %meson_build
 
