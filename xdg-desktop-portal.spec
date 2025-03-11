@@ -4,7 +4,7 @@
 
 Name: xdg-desktop-portal
 Version: 1.20.0
-Release: 1
+Release: 2
 Source0: https://github.com/flatpak/xdg-desktop-portal/archive/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
 URL: https://github.com/flatpak/xdg-desktop-portal
@@ -40,6 +40,9 @@ Requires: dbus
 Requires: geoclue
 Requires: pipewire
 Requires: fuse
+
+%patchlist
+x-d-p-defaults.patch
 
 %description
 D-Bus service providing native file dialogs.

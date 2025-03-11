@@ -1,0 +1,44 @@
+diff -up xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c.omv~ xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c
+--- xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c.omv~	2025-03-11 15:39:56.815493959 +0100
++++ xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c	2025-03-11 16:34:10.884271597 +0100
+@@ -720,6 +720,40 @@ add_all_default_portal_implementations_i
+ static XdpPortalImplementation *
+ find_gtk_fallback_portal_implementation (const char *interface)
+ {
++  /* Let's try returning something nice first, gtk file dialogs stink */
++  for (GList *l = implementations; l != NULL; l = l->next)
++    {
++      XdpPortalImplementation *impl = l->data;
++
++      if (!g_str_equal (impl->dbus_name, "org.freedesktop.impl.portal.desktop.kde"))
++        continue;
++
++      if (!portal_impl_supports_iface (impl, interface))
++        continue;
++
++      g_warning ("Choosing %s.portal for %s as a last-resort fallback",
++                 impl->source, interface);
++
++      return impl;
++    }
++
++  for (GList *l = implementations; l != NULL; l = l->next)
++    {
++      XdpPortalImplementation *impl = l->data;
++
++      if (!g_str_equal (impl->dbus_name, "org.freedesktop.impl.portal.desktop.lxqt"))
++        continue;
++
++      if (!portal_impl_supports_iface (impl, interface))
++        continue;
++
++      g_warning ("Choosing %s.portal for %s as a last-resort fallback",
++                 impl->source, interface);
++
++      return impl;
++    }
++
++
+   /* As a last resort, if nothing was selected for this desktop by
+    * ${desktop}-portals.conf or portals.conf, and no portal volunteered
+    * itself as suitable for this desktop via the legacy UseIn mechanism,
