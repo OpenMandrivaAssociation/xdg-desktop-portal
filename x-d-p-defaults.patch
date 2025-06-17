@@ -1,14 +1,14 @@
-diff -up xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c.omv~ xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c
---- xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c.omv~	2025-03-11 15:39:56.815493959 +0100
-+++ xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c	2025-03-11 16:34:10.884271597 +0100
-@@ -720,6 +720,40 @@ add_all_default_portal_implementations_i
+diff -up xdg-desktop-portal-1.20.3/src/xdp-portal-impl.c.1~ xdg-desktop-portal-1.20.3/src/xdp-portal-impl.c
+--- xdg-desktop-portal-1.20.3/src/xdp-portal-impl.c.1~	2025-05-20 19:07:14.000000000 +0200
++++ xdg-desktop-portal-1.20.3/src/xdp-portal-impl.c	2025-06-18 01:29:32.995833856 +0200
+@@ -807,6 +807,40 @@ add_all_default_portal_implementations_i
  static XdpPortalImplementation *
  find_gtk_fallback_portal_implementation (const char *interface)
  {
 +  /* Let's try returning something nice first, gtk file dialogs stink */
-+  for (GList *l = implementations; l != NULL; l = l->next)
++  for (size_t i = 0; i < implementations->len; i++)
 +    {
-+      XdpPortalImplementation *impl = l->data;
++      XdpPortalImplementation *impl = g_ptr_array_index (implementations, i);
 +
 +      if (!g_str_equal (impl->dbus_name, "org.freedesktop.impl.portal.desktop.kde"))
 +        continue;
@@ -22,9 +22,9 @@ diff -up xdg-desktop-portal-1.20.0/src/xdp-portal-impl.c.omv~ xdg-desktop-portal
 +      return impl;
 +    }
 +
-+  for (GList *l = implementations; l != NULL; l = l->next)
++  for (size_t i = 0; i < implementations->len; i++)
 +    {
-+      XdpPortalImplementation *impl = l->data;
++      XdpPortalImplementation *impl = g_ptr_array_index (implementations, i);
 +
 +      if (!g_str_equal (impl->dbus_name, "org.freedesktop.impl.portal.desktop.lxqt"))
 +        continue;
