@@ -42,7 +42,10 @@ Requires: pipewire
 Requires: fuse
 
 %patchlist
-# not apply in 1.21, neede rebase
+# With the recent refactor in 1.21.0 (portal-impl turned into a GObject and fallback logic reworked around XdpPortalConfig),
+# the previous patch no longer applies.
+# Given that upstream moved towards a more configurable and environment-driven selection mechanism, 
+# it might be best not to reintroduce hardcoded fallback preferences and instead rely on the new upstream logic. AP
 #x-d-p-defaults.patch
 
 %description
@@ -93,7 +96,6 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_datadir}/%{name}/portals
 %{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
 %{_datadir}/dbus-1/services/org.freedesktop.*.service
-#doc %{_docdir}/xdg-desktop-portal
 %{_mandir}/man5/portals.conf.5.*
 
 %files devel
