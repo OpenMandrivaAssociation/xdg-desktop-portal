@@ -42,7 +42,8 @@ Requires: pipewire
 Requires: fuse
 
 %patchlist
-x-d-p-defaults.patch
+# not apply in 1.21, neede rebase
+#x-d-p-defaults.patch
 
 %description
 D-Bus service providing native file dialogs.
