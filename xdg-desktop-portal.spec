@@ -3,8 +3,8 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: xdg-desktop-portal
-Version: 1.20.3
-Release: 2
+Version: 1.21.0
+Release: 1
 Source0: https://github.com/flatpak/xdg-desktop-portal/releases/download/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
 URL: https://github.com/flatpak/xdg-desktop-portal
@@ -42,7 +42,11 @@ Requires: pipewire
 Requires: fuse
 
 %patchlist
-x-d-p-defaults.patch
+# With the recent refactor in 1.21.0 (portal-impl turned into a GObject and fallback logic reworked around XdpPortalConfig),
+# the previous patch no longer applies.
+# Given that upstream moved towards a more configurable and environment-driven selection mechanism, 
+# it might be best not to reintroduce hardcoded fallback preferences and instead rely on the new upstream logic. AP
+#x-d-p-defaults.patch
 
 %description
 D-Bus service providing native file dialogs.
@@ -92,7 +96,6 @@ install -dm 755 %{buildroot}%{_datadir}/%{name}/portals
 %{_datadir}/%{name}/portals
 %{_datadir}/dbus-1/interfaces/org.freedesktop.*.xml
 %{_datadir}/dbus-1/services/org.freedesktop.*.service
-#doc %{_docdir}/xdg-desktop-portal
 %{_mandir}/man5/portals.conf.5.*
 
 %files devel
