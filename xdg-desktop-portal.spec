@@ -4,7 +4,7 @@
 
 Name: xdg-desktop-portal
 Version: 1.22.1
-Release: 1
+Release: 2
 Source0: https://github.com/flatpak/xdg-desktop-portal/releases/download/%{version}/%{name}-%{version}.tar.xz
 Summary: D-Bus service providing native file dialogs
 URL: https://github.com/flatpak/xdg-desktop-portal
@@ -42,11 +42,11 @@ Requires: pipewire
 Requires: fuse
 
 %patchlist
-# With the recent refactor in 1.21.0 (portal-impl turned into a GObject and fallback logic reworked around XdpPortalConfig),
-# the previous patch no longer applies.
-# Given that upstream moved towards a more configurable and environment-driven selection mechanism, 
-# it might be best not to reintroduce hardcoded fallback preferences and instead rely on the new upstream logic. AP
-#x-d-p-defaults.patch
+# patch from ubuntu/arch
+# Some desktop environments that do not bind to graphical-session.target
+# and thats why xdg-desktop-portal.service is not active. Temp. workaround.
+# https://gitlab.archlinux.org/archlinux/packaging/packages/xdg-desktop-portal/-/commit/93e731c0f7a1bf646dd66607c08a90a7b2f7f5a8
+allow-no-graphical-session-target.patch
 
 %description
 D-Bus service providing native file dialogs.
